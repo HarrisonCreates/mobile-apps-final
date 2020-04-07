@@ -55,6 +55,9 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
+.home_slide > img:first-of-type {
+  width: 100%; }
+
 .home_slide > .spiral_logo {
   display: -webkit-box;
   display: -ms-flexbox;
