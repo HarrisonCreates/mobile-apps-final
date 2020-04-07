@@ -1,0 +1,21 @@
+{
+    "short_name": "Stillness",
+    "name": "Stillness",
+    "icons": [
+      {
+        "src":"icon192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "icon512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "index.html",
+    "background_color": "#141115",
+    "orientation": "portrait",
+    "theme_color": "#141115",
+    "display": "fullscreen"
+  }
