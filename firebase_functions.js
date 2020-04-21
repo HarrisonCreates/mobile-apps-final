@@ -8,12 +8,12 @@ function getAllRelevantPosts(query) {
     query_array.push(item);
   });
   query_array.forEach((item, i) => {
-    var temp_array = [];
+    var temp_array = {}};
     var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
     doc_ref.get().then((returned_vals) => {
-      returned_vals.forEach((doc) => {
+      returned_vals.forEach((doc, i) => {
         var this_doc = doc.data();
-        temp_array.push(this_doc);
+        temp_array[i] = this_doc;
       });
     });
     relevant_returns[item] = temp_array;
