@@ -12,13 +12,12 @@ function getAllRelevantPosts(query) {
     var temp_array = [];
     var doc_ref = db.collection("posts").doc(item).collection("uploads");
     doc_ref.get().then((returned_vals) => {
-      console.log("Found these for " + item);
       returned_vals.forEach((doc) => {
          var this_doc = doc.data();
          temp_array.push(this_doc);
       });
-    relevant_returns[item] = temp_array;
     });
+    relevant_returns[item] = temp_array;
   });
   console.log(relevant_returns);
 }
