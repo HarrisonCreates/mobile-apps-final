@@ -9,11 +9,13 @@ function getAllRelevantPosts(query) {
   });
   query_array.forEach((item, i) => {
     var temp_array = {};
+    var num = 0;
     var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
     doc_ref.get().then((returned_vals) => {
-      returned_vals.forEach((doc, i) => {
+      returned_vals.forEach((doc) => {
         var this_doc = doc.data();
-        temp_array[i] = this_doc;
+        temp_array[num] = this_doc;
+        num += 1
       });
     });
     relevant_returns[item] = temp_array;
