@@ -19,9 +19,10 @@ function getAllRelevantPosts(query) {
     relevant_returns[item] = temp_array;
   });
   try {
+    console.log(relevant_returns);
     localStorage.setItem("returned_posts", JSON.stringify(relevant_returns));
-    return true;
+    //return true;
   } catch {
-    return false;
+    //return false;
   }
 }
