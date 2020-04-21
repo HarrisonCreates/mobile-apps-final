@@ -34,8 +34,9 @@ document.querySelector('img').addEventListener('click', async () => {
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
      var successful_query = await getAllRelevantPosts(user_selections);
-     if(successful_query == true){
-       window.location = "dashboard.html";
+     if(successful_query[0] == "true"){
+       console.log(successful_query[1]);
+       //window.location = "dashboard.html";
      } else {
        alert("Something went wrong. Check your internet connection.");
      }

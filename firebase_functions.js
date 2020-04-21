@@ -21,11 +21,8 @@ function getAllRelevantPosts(query) {
     relevant_returns[item] = temp_array;
   });
   try {
-    console.log(relevant_returns);
-    console.log(JSON.stringify(relevant_returns));
-    localStorage.setItem("returned_posts", JSON.stringify(relevant_returns));
-    //return true;
+    return ["true", relevant_returns];
   } catch {
-    //return false;
+    return ["false"];
   }
 }
