@@ -5,16 +5,16 @@ function getAllRelevantPosts(query) {
   Object.keys(query).forEach((item, i) => {
     item = item.replace("_", "-");
     item = item.replace("/", "-");
+    item = item.replace(" ", "-");
     query_array.push(item);
   });
   console.log("Received:");
   console.log(query_array);
   query_array.forEach((item, i) => {
-    db.collection("posts").collection("uploads").limit(200).get().then((returned_vals) => {
-      returned_vals.forEach((result, i) => {
-        relevant_returns[item] = result
-      });
+    db.collection("posts").doc(item.toString()).limit(200).get().then((returned_vals) => {
+      console.log("Returning the below for query " + item);
+      console.log(returned_vals);
     });
   });
-  console.log(relevant_returns);
+  //console.log(relevant_returns);
 }
