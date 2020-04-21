@@ -37,7 +37,8 @@ document.querySelector('img').addEventListener('click', async () => {
      var successful_query = await getAllRelevantPosts(user_selections);
      if(successful_query[0] == "true"){
        items = successful_query[1];
-       //window.location = "dashboard.html";
+       localStorage.setItem('returned_values', JSON.stringify(items));
+       window.location = "dashboard.html";
      } else {
        alert("Something went wrong. Check your internet connection.");
      }
