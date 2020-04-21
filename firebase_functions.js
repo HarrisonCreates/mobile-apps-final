@@ -3,15 +3,16 @@ function getAllRelevantPosts(query) {
   query_array = [];
   // Converting query dictionary to array
   Object.keys(query).forEach((item, i) => {
+    item = item.replace("_", "-");
+    item = item.replace("/", "-");
     query_array.push(item);
   });
   console.log("Received:");
   console.log(query_array);
   query_array.forEach((item, i) => {
-    console.log("Retrieving " + item);
-    db.collection("posts").limit(200).get().then((item) => {
+    db.collection("posts").collection(item.toString()).limit(200).get().then((returned_vals) => {
       returned_vals.forEach((result, i) => {
-        relevant_returns[i] = result
+        relevant_returns[item] = result
       });
     });
   });
