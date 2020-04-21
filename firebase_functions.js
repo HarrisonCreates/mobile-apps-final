@@ -9,7 +9,7 @@ function getAllRelevantPosts(query) {
     query_array.push(item);
   });
   query_array.forEach((item, i) => {
-    var doc_ref = db.collection("posts").doc(item);
+    var doc_ref = db.collection("posts").doc(item).collection("uploads");
     doc_ref.get().then((returned_vals) => {
       console.log("Returning the below for query " + item);
       console.log(returned_vals);
