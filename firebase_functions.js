@@ -12,7 +12,7 @@ function getAllRelevantPosts(query) {
     var doc_ref = db.collection("posts").doc(item).collection("uploads");
     doc_ref.get().then((returned_vals) => {
       console.log("Returning the below for query " + item);
-      console.log(returned_vals);
+      console.log(returned_vals.docs);
     });
   });
   //console.log(relevant_returns);
