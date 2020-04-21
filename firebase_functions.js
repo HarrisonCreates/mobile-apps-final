@@ -19,7 +19,7 @@ function getAllRelevantPosts(query) {
     relevant_returns[item] = temp_array;
   });
   try {
-    localStorage.setItem("returned_posts", relevant_returns);
+    localStorage.setItem("returned_posts", JSON.stringify(relevant_returns));
     return true;
   } catch {
     return false;
