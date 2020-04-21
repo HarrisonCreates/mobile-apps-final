@@ -8,10 +8,9 @@ function getAllRelevantPosts(query) {
     item = item.replace(" ", "-");
     query_array.push(item);
   });
-  console.log("Received:");
-  console.log(query_array);
   query_array.forEach((item, i) => {
-    db.collection("posts").doc(item.toString()).limit(200).get().then((returned_vals) => {
+    var doc_ref = db.collection("posts").doc(item);
+    doc_ref.get().then((returned_vals) => {
       console.log("Returning the below for query " + item);
       console.log(returned_vals);
     });
