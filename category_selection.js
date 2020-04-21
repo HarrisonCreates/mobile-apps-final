@@ -31,14 +31,14 @@ function check_me(label){
    }
 }
 
-document.querySelector('img').addEventListener('click', async () => {
+document.querySelector('img').addEventListener('click', () => {
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
-     var successful_query = await getAllRelevantPosts(user_selections);
+     var successful_query = getAllRelevantPosts(user_selections);
      if(successful_query[0] == "true"){
        items = successful_query[1];
        console.log(JSON.stringify(items));
-       localStorage.setItem('returned_values', JSON.stringify(items));
+       //localStorage.setItem('returned_values', JSON.stringify(items));
        //window.location = "dashboard.html";
      } else {
        alert("Something went wrong. Check your internet connection.");
