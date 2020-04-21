@@ -30,10 +30,12 @@ function check_me(label){
    }
 }
 
-document.querySelector('img').addEventListener('click', () => {
+document.querySelector('img').addEventListener('click', async () => {
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
-     if(getAllRelevantPosts(user_selections)== true){
+     var successful_query = await getAllRelevantPosts(user_selections);
+     console.log(successful_query);
+     if(successful_query == true){
        window.location = "dashboard.html";
      } else {
        alert("Something went wrong. Check your internet connection.");
