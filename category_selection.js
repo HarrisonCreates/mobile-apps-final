@@ -1,4 +1,5 @@
-user_selections = {};
+var user_selections = {};
+var items;
 
 if(localStorage.selected_categories != undefined){
    for(var i = 0; i < document.querySelector('.options').children.length; i++){
@@ -35,7 +36,7 @@ document.querySelector('img').addEventListener('click', async () => {
      update_localstorage_vars(Object.keys(user_selections));
      var successful_query = await getAllRelevantPosts(user_selections);
      if(successful_query[0] == "true"){
-       console.log(successful_query[1]);
+       items = successful_query[1];
        //window.location = "dashboard.html";
      } else {
        alert("Something went wrong. Check your internet connection.");
