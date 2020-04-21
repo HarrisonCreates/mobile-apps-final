@@ -10,7 +10,7 @@ function getAllRelevantPosts(query) {
   console.log("Received:");
   console.log(query_array);
   query_array.forEach((item, i) => {
-    db.collection("posts").collection(item.toString()).limit(200).get().then((returned_vals) => {
+    db.collection("posts").collection("uploads").limit(200).get().then((returned_vals) => {
       returned_vals.forEach((result, i) => {
         relevant_returns[item] = result
       });
