@@ -3,7 +3,8 @@ function getAllRelevantPosts(query) {
 
 
 
-    //db.collection("posts").limit(200).get().then(() => {
+    /*db.collection("posts").limit(200).get().then(() => {
 
     });
+    */
 }
