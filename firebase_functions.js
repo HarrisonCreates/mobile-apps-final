@@ -11,8 +11,11 @@ function getAllRelevantPosts(query) {
   query_array.forEach((item, i) => {
     var doc_ref = db.collection("posts").doc(item).collection("uploads");
     doc_ref.get().then((returned_vals) => {
-      console.log("Returning the below for query " + item);
-      console.log(returned_vals.docs);
+      console.log("Found these for " + item);
+      returned_vals.forEach((doc) => {
+         var this_doc = doc.data();
+         console.log(this_doc);
+      });
     });
   });
   //console.log(relevant_returns);
