@@ -33,6 +33,7 @@ function check_me(label){
 document.querySelector('img').addEventListener('click', () => {
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
+     getAllRelevantPosts(user_selections);
      window.location = "dashboard.html";
    } else {
      remind_purpose();
