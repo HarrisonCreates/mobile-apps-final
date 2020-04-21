@@ -22,6 +22,7 @@ function getAllRelevantPosts(query) {
   });
   try {
     console.log(relevant_returns);
+    console.log(JSON.stringify(relevant_returns));
     localStorage.setItem("returned_posts", JSON.stringify(relevant_returns));
     //return true;
   } catch {
