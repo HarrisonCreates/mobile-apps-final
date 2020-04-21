@@ -10,7 +10,7 @@ function getAllRelevantPosts(query) {
   });
   query_array.forEach((item, i) => {
     var temp_array = [];
-    var doc_ref = db.collection("posts").doc(item).collection("uploads");
+    var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
     doc_ref.get().then((returned_vals) => {
       returned_vals.forEach((doc) => {
          var this_doc = doc.data();
