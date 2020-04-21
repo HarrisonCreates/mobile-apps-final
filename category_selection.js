@@ -33,8 +33,11 @@ function check_me(label){
 document.querySelector('img').addEventListener('click', () => {
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
-     getAllRelevantPosts(user_selections);
-     //window.location = "dashboard.html";
+     if(getAllRelevantPosts(user_selections)== true){
+       window.location = "dashboard.html";
+     } else {
+       alert("Something went wrong. Check your internet connection.");
+     }
    } else {
      remind_purpose();
    }
