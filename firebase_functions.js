@@ -18,7 +18,8 @@ function getAllRelevantPosts(query) {
         num += 1
       });
     });
-    relevant_returns[item] = temp_array;
+    var new_item = item.toString().replace("-", "_");
+    relevant_returns[new_item] = temp_array;
   });
   try {
     return ["true", relevant_returns];
