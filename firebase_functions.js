@@ -19,7 +19,7 @@ function getAllRelevantPosts(query) {
       });
     });
     var new_item = item.toString().replace("-", "_");
-    relevant_returns[new_item] = temp_array;
+    relevant_returns[new_item] = JSON.stringify(temp_array);
   });
   try {
     return ["true", relevant_returns];
