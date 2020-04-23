@@ -1,5 +1,4 @@
 var user_selections = {};
-var items;
 
 if(localStorage.selected_categories != undefined){
    for(var i = 0; i < document.querySelector('.options').children.length; i++){
@@ -32,27 +31,25 @@ function check_me(label){
 }
 
 document.querySelector('img').addEventListener('click', async () => {
+   var items;
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
      var successful_query = await getAllRelevantPosts(user_selections);
      if(successful_query[0] == "true"){
        items = successful_query[1];
+       console.log("Received:");
+       console.log(items);
      } else {
        alert("Something went wrong. Check your internet connection.");
      }
    } else {
      remind_purpose();
    }
+   console.log("Reading:");
    console.log(items);
+   console.log("Converting to String:");
    console.log(JSON.stringify(items));
-   if (JSON.stringify(items).trim() != '') {
-     //localStorage.setItem('returned_values', JSON.stringify(items));
-     //window.location = "dashboard.html";
-   }
 });
-
-console.log(items);
-console.log(JSON.stringify(items));
 
 function remind_purpose(){
   let message = 'Select one or multiple options to proceed';
