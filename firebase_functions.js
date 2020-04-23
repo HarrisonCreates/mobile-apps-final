@@ -14,12 +14,12 @@ function getAllRelevantPosts(query) {
     doc_ref.get().then((returned_vals) => {
       returned_vals.forEach((doc) => {
         var this_doc = doc.data();
-        temp_array[num] = this_doc;
+        temp_array[num] = JSON.stringify(this_doc);
         num += 1
       });
     });
     var new_item = item.toString().replace("-", "_");
-    relevant_returns[new_item] = JSON.stringify(temp_array);
+    relevant_returns[new_item] = temp_array;
   });
   try {
     return ["true", relevant_returns];
