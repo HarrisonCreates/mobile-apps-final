@@ -9,18 +9,18 @@ function getAllRelevantPosts(query) {
   });
   query_array.forEach((item, i) => {
     var temp_array = {};
+    var num = 0;
     var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
     doc_ref.get().then((returned_vals) => {
       returned_vals.forEach((doc) => {
         var this_doc = doc.data();
-        var num = 0;
-        var new_key = "entry_"+num;
-        temp_array[new_key] = JSON.stringify(this_doc);
-        num += 1;
+        var new_key = "entry_" + num;
+        temp_array[new_key] = this_doc;
+        num += 1
       });
     });
     var new_item = item.toString().replace("-", "_");
-    relevant_returns[new_item] = temp_array;
+    relevant_returns[new_item] = JSON.stringify(temp_array);
   });
   try {
     return ["true", relevant_returns];
