@@ -16,7 +16,7 @@ function getAllRelevantPosts(query) {
         var this_doc = doc.data();
         console.log("This Doc:");
         console.log(this_doc);
-        console.log(type(this_doc));
+        console.log(typeof(this_doc));
         var new_key = "entry_" + num;
         temp_array[new_key] = this_doc;
         num += 1
