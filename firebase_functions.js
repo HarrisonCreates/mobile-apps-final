@@ -13,7 +13,7 @@ function getAllRelevantPosts(query) {
     var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
     doc_ref.get().then((returned_vals) => {
       returned_vals.forEach((doc) => {
-        var this_doc = JSON.stringify(doc.data());
+        var this_doc = doc.data();
         var new_key = "entry_" + num;
         temp_array[new_key] = this_doc;
         num += 1
