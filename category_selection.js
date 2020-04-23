@@ -31,10 +31,10 @@ function check_me(label){
    }
 }
 
-document.querySelector('img').addEventListener('click', () => {
+document.querySelector('img').addEventListener('click', async () => {
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
-     var successful_query = getAllRelevantPosts(user_selections);
+     var successful_query = await getAllRelevantPosts(user_selections);
      if(successful_query[0] == "true"){
        items = successful_query[1];
      } else {
@@ -50,6 +50,9 @@ document.querySelector('img').addEventListener('click', () => {
      //window.location = "dashboard.html";
    }
 });
+
+console.log(items);
+console.log(JSON.stringify(items));
 
 function remind_purpose(){
   let message = 'Select one or multiple options to proceed';
