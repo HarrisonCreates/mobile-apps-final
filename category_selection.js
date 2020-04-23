@@ -39,14 +39,12 @@ document.querySelector('img').addEventListener('click', async () => {
        items = successful_query[1];
        console.log("Received:");
        console.log(items);
-       console.log("Converting to String:");
-       console.log(JSON.stringify(items));
      } else {
        alert("Something went wrong. Check your internet connection.");
      }
    } else {
      remind_purpose();
-   }   
+   }
 });
 
 function remind_purpose(){
