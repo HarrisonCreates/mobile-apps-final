@@ -1,4 +1,5 @@
 var user_selections = {};
+var items;
 
 if(localStorage.selected_categories != undefined){
    for(var i = 0; i < document.querySelector('.options').children.length; i++){
@@ -31,7 +32,6 @@ function check_me(label){
 }
 
 document.querySelector('img').addEventListener('click', async () => {
-   var items;
    if(Object.keys(user_selections).length > 0){
      update_localstorage_vars(Object.keys(user_selections));
      var successful_query = await getAllRelevantPosts(user_selections);
@@ -39,6 +39,8 @@ document.querySelector('img').addEventListener('click', async () => {
        items = successful_query[1];
        console.log("Received:");
        console.log(items);
+       console.log("Attempting to Stringify...");
+       console.log(JSON.stringify(items));
      } else {
        alert("Something went wrong. Check your internet connection.");
      }
