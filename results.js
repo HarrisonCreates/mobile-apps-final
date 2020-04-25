@@ -13,12 +13,13 @@ Object.keys(this_category_results).forEach((item) => {
        post_contents = document.createElement('p'),
        likes_div = document.createElement('div'),
        likes_img = document.createElement('img'),
-       likes_counter = document.createElement('p');
-       
+       likes_counter = document.createElement('p'),
+       this_item = this_category_results[item];
+
    console.log(item);
-   post_title.innerHTML = item.title;
-   post_contents.innerHTML = item.content;
-   likes_counter.innerHTML = item.likes;
+   post_title.innerHTML = this_item.title;
+   post_contents.innerHTML = this_item.content;
+   likes_counter.innerHTML = this_item.likes;
 
    likes_div.setAttribute('class', 'likes');
    likes_img.setAttribute('src', 'assets/heart_icon.svg');
