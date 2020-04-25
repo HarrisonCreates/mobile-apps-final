@@ -46,6 +46,8 @@ document.querySelector('img').addEventListener('click', async () => {
         }
      }
     );
+  }
+});
 
 function remind_purpose(){
   let message = 'Select one or multiple options to proceed';
