@@ -3,7 +3,7 @@ function getAllRelevantPosts(query, callback) {
   var query_array = [];
   Object.keys(query).forEach((item, i) => {
     item = item.replace(/ /g, "-");
-    item = item.replace("_", "-");
+    item = item.replace(/_/g, "-");
     item = item.replace("/", "-");
     query_array.push(item);
   });
@@ -17,8 +17,7 @@ function getAllRelevantPosts(query, callback) {
         var this_doc = doc.data();
         var new_key = "entry_" + num;
         temp_array[new_key] = this_doc;
-        var new_item = item.toString().replace("-", "_");
-        new_item = new_item.replace(" ", "_");
+        var new_item = item.toString().replace(/-/g, "_");
         relevant_returns[new_item] = temp_array;
         num += 1
       });
