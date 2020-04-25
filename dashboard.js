@@ -13,7 +13,6 @@ Object.keys(categories).forEach((item) => {
   let item_stringified = '"' + item + '"';
   let process_str = 'process('+ item_stringified +')';
   temp_div.setAttribute('onclick', process_str);
-  console.log(process_str);
   temp_div_arrow.setAttribute('src', 'assets/arrow_svg.svg');
   temp_div_title.innerHTML = '"' + item.toString().toUpperCase().replace(/_/g, " ") + '"' + " POSTS";
 
@@ -23,5 +22,6 @@ Object.keys(categories).forEach((item) => {
 });
 
 function process(category_name){
-   alert("You have selected: " + category_name);
+   localStorage.setItem('selected_category', category_name);
+   window.location.assign('results_page.html');
 }
