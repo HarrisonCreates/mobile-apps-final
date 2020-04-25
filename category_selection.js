@@ -37,12 +37,13 @@ document.querySelector('img').addEventListener('click', async () => {
     getAllRelevantPosts(user_selections, function(res) {
       if (res) {
         items = res;
+        console.log(items);
+        console.log(JSON.stringify(items));
+        localStorage.setItem('returned_values', items);
       } else {
         alert("Something went wrong. Check your internet connection.");
       }
     });
-    console.log(items);
-    console.log(JSON.stringify(items));
   }
 });
 

@@ -7,6 +7,7 @@ function getAllRelevantPosts(query, callback) {
     item = item.replace(" ", "-");
     query_array.push(item);
   });
+  console.log(query_array);
   query_array.forEach((item, i) => {
     var temp_array = {};
     var num = 0;
