@@ -1,5 +1,5 @@
 var category_name = localStorage.getItem('selected_category');
-var categories = localStorage.getItem('returned_values');
+var categories = JSON.parse(localStorage.getItem('returned_values'));
 var this_category_results = categories[category_name];
 
 var title = document.querySelector('.text_collection > h1');
