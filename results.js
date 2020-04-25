@@ -15,9 +15,9 @@ Object.keys(this_category_results).forEach((item) => {
        likes_img = document.createElement('img'),
        likes_counter = document.createElement('p');
 
-   post_title.innerHTML = this_category_results.title;
-   post_contents.innerHTML = this_category_results.content;
-   likes_counter.innerHTML = this_category_results.likes;
+   post_title.innerHTML = item.title;
+   post_contents.innerHTML = item.content;
+   likes_counter.innerHTML = item.likes;
 
    likes_div.setAttribute('class', 'likes');
    likes_img.setAttribute('src', 'assets/heart_icon.svg');
