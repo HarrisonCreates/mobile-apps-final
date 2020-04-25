@@ -1,7 +1,5 @@
 function getAllRelevantPosts(query, callback) {
-  let relevant_returns = {
-    hungriness:{}
-  };
+  let relevant_returns = {};
   var query_array = [];
   Object.keys(query).forEach((item, i) => {
     item = item.replace("_", "-");
