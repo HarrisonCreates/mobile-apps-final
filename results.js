@@ -32,15 +32,6 @@ Object.keys(this_category_results).forEach((item) => {
    posts_area.appendChild(post);
 });
 
-<div class="post">
-  <h1>Title</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quidem dolorem distinctio inventore, quod amet ad hic tempora iste expedita assumenda delectus eligendi iure nemo ipsum soluta! Rem impedit, veritatis?</p>
-  <div class="likes">
-    <img src="assets/heart_icon.svg" onclick="incriment_like(this)" alt="Tap to Like">
-    <p class="like_count">0</p>
-  </div>
-</div>
-
 // Put a switch/case area here to handle setting the titles
 if(category_name == "breakup_divorce"){
    title.innerHTML = "HEARTBROKEN?";
