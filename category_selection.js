@@ -39,7 +39,7 @@ document.querySelector('img').addEventListener('click', async () => {
         items = res;
         console.log(items);
         console.log(JSON.stringify(items));
-        localStorage.setItem('returned_values', items);
+        localStorage.setItem('returned_values', JSON.stringify(items));
       } else {
         alert("Something went wrong. Check your internet connection.");
       }
