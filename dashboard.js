@@ -6,10 +6,6 @@ document.querySelector('.update_selection_btn').addEventListener('click', () => 
 });
 
 Object.keys(categories).forEach((item) => {
-
-  console.log(item);
-  console.log(categories[item]);
-
   var temp_div = document.createElement('div');
   var temp_div_title = document.createElement('p');
   var temp_div_arrow = document.createElement('img');
@@ -20,6 +16,5 @@ Object.keys(categories).forEach((item) => {
 
   temp_div.appendChild(temp_div_title);
   temp_div.appendChild(temp_div_arrow);
-  console.log(temp_div);
-  //dashboard_results.appendChild(temp_div);
+  dashboard_results.appendChild(temp_div);
 });
