@@ -7,6 +7,11 @@ var subtext = document.querySelector('.text_collection > h3');
 
 var posts_area = document.querySelector('.posts_results');
 
+function like_unlike(heart){
+   // this may actually be slightly tricky.
+   console.log("Liking post...");
+}
+
 Object.keys(this_category_results).forEach((item) => {
    var post = document.createElement('div'),
        post_title = document.createElement('h1'),
@@ -16,13 +21,13 @@ Object.keys(this_category_results).forEach((item) => {
        likes_counter = document.createElement('p'),
        this_item = this_category_results[item];
 
-   console.log(item);
    post_title.innerHTML = this_item.title;
    post_contents.innerHTML = this_item.content;
    likes_counter.innerHTML = this_item.likes;
 
    likes_div.setAttribute('class', 'likes');
    likes_img.setAttribute('src', 'assets/heart_icon.svg');
+   likes_img.setAttribute('onclick', 'like_unlike(this)');
    likes_counter.setAttribute('class', 'like_count');
    likes_div.appendChild(likes_img);
    likes_div.appendChild(likes_counter);
@@ -34,7 +39,6 @@ Object.keys(this_category_results).forEach((item) => {
    posts_area.appendChild(post);
 });
 
-// Put a switch/case area here to handle setting the titles
 if(category_name == "breakup_divorce"){
    title.innerHTML = "HEARTBROKEN?";
    subtext.innerHTML = "BROKEN DOORS ARE EASIER TO OPEN";
@@ -53,7 +57,7 @@ if(category_name == "breakup_divorce"){
 } else if(category_name == "just_need_a_friend"){
   title.innerHTML = "NEED A FRIEND?";
   subtext.innerHTML = "WHY NOT A HUNDRED";
-}  else if(category_name == "frustation_angry"){
+}  else if(category_name == "frustration_angry"){
   title.innerHTML = "FRUSTRATED/ANGRY?";
   subtext.innerHTML = "RELAX WITH US";
 }
