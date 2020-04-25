@@ -37,9 +37,8 @@ document.querySelector('img').addEventListener('click', async () => {
     getAllRelevantPosts(user_selections, function(res) {
       if (res) {
         items = res;
-        console.log(items);
-        console.log(JSON.stringify(items));
         localStorage.setItem('returned_values', JSON.stringify(items));
+        window.location.assign("dashboard.html");
       } else {
         alert("Something went wrong. Check your internet connection.");
       }
