@@ -210,6 +210,8 @@ body{
   padding-left: 5vw;
   border: 1px solid white;
   border-radius: 50px;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
   color: white;
   display: flex;
   flex-direction: row;
@@ -220,7 +222,8 @@ body{
 .dashboard > .simplified_options > div > p{
   margin: 0;
   padding: 0;
-  font-size: 4.25vw;
+  font-size: 3vw;
+  font-weight: 100;
   letter-spacing: .1em;
   font-family: 'Alata';
 }
