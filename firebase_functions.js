@@ -1,5 +1,7 @@
-function getAllRelevantPosts(query) {
-  let relevant_returns = {};
+function getAllRelevantPosts(query, callback) {
+  let relevant_returns = {
+    hungriness:{}
+  };
   var query_array = [];
   Object.keys(query).forEach((item, i) => {
     item = item.replace("_", "-");
@@ -14,21 +16,14 @@ function getAllRelevantPosts(query) {
     doc_ref.get().then((returned_vals) => {
       returned_vals.forEach((doc) => {
         var this_doc = doc.data();
-        console.log("This Doc:");
-        console.log(this_doc);
-        console.log(typeof(this_doc));
         var new_key = "entry_" + num;
         temp_array[new_key] = this_doc;
+        var new_item = item.toString().replace("-", "_");
+        new_item = new_item.replace(" ", "_");
+        relevant_returns[new_item] = temp_array;
         num += 1
       });
+      callback(relevant_returns);
     });
-    var new_item = item.toString().replace("-", "_");
-    new_item = new_item.replace(" ", "_");
-    relevant_returns[new_item] = temp_array;
   });
-  try {
-    return ["true", relevant_returns];
-  } catch {
-    return ["false"];
-  }
 }
