@@ -10,7 +10,7 @@ Object.keys(categories).forEach((item) => {
   var temp_div_title = document.createElement('p');
   var temp_div_arrow = document.createElement('img');
   temp_div.setAttribute('class', item + '_posts');
-  temp_div.setAttribute('onclick', 'process(' + item + ')');
+  temp_div.addEventListener('click', process(item));
   temp_div_arrow.setAttribute('src', 'assets/arrow_svg.svg');
   temp_div_title.innerHTML = '"' + item.toString().toUpperCase().replace(/_/g, " ") + '"' + " POSTS";
 
