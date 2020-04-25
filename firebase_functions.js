@@ -2,9 +2,9 @@ function getAllRelevantPosts(query, callback) {
   let relevant_returns = {};
   var query_array = [];
   Object.keys(query).forEach((item, i) => {
+    item = item.replace(/ /g, "-");
     item = item.replace("_", "-");
     item = item.replace("/", "-");
-    item = item.replace(" ", "-");
     query_array.push(item);
   });
   console.log(query_array);
