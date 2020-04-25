@@ -14,7 +14,8 @@ Object.keys(this_category_results).forEach((item) => {
        likes_div = document.createElement('div'),
        likes_img = document.createElement('img'),
        likes_counter = document.createElement('p');
-
+       
+   console.log(item);
    post_title.innerHTML = item.title;
    post_contents.innerHTML = item.content;
    likes_counter.innerHTML = item.likes;
