@@ -13,9 +13,11 @@ function like_unlike(heart) {
   if (localStorage.getItem(entry_name) == "false") {
      // Set this post to "liked"
      console.log("Liking post...");
+     heart.setAttribute('src', 'assets/heart_icon_filled.svg');
      localStorage.setItem(entry_name, "true");
   } else {
     console.log("Unliking post...");
+    heart.setAttribute('src', 'assets/heart_icon.svg');
     localStorage.setItem(entry_name, "false");
     // call firebase function to decrement the like
   }
