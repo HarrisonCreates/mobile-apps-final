@@ -40,7 +40,7 @@ Object.keys(this_category_results).forEach((item) => {
   likes_counter.innerHTML = this_item.likes;
 
   likes_div.setAttribute('class', 'likes');
-  if(localStorage.getItem(category_name + "_" + item) == "true"){
+  if(localStorage.getItem(category_name + "_" + item) == "false" || localStorage.getItem(category_name + "_" + item) == undefined){
      likes_img.setAttribute('src', 'assets/heart_icon.svg');
      localStorage.setItem(category_name + "_" + item, "false");
   } else {
