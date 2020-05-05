@@ -24,7 +24,6 @@ function like_unlike(heart) {
 
   //set heart to white & call firebase function to add to the like, passing the above as a parameter
 }
-}
 
 Object.keys(this_category_results).forEach((item) => {
   var post = document.createElement('div'),
