@@ -22,6 +22,7 @@ Object.keys(this_category_results).forEach((item) => {
        likes_counter = document.createElement('p'),
        this_item = this_category_results[item];
 
+   post.setAttribute('class', item);
    post_title.innerHTML = this_item.title;
    post_contents.innerHTML = this_item.content;
    likes_counter.innerHTML = this_item.likes;
