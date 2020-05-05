@@ -9,6 +9,7 @@ var posts_area = document.querySelector('.posts_results');
 
 function like_unlike(heart){
    // this may actually be slightly tricky.
+   console.log(heart.parentNode);
    console.log("Liking post...");
 }
 
