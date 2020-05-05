@@ -8,7 +8,7 @@ var subtext = document.querySelector('.text_collection > h3');
 var posts_area = document.querySelector('.posts_results');
 
 function like_unlike(heart) {
-  let entry_name = heart.parentNode.parentNode.className;
+  let entry_name = category_name + "_" + heart.parentNode.parentNode.className;
   // this may actually be slightly tricky.
   if (localStorage.getItem(entry_name) == "false") {
      // Set this post to "liked"
@@ -40,12 +40,12 @@ Object.keys(this_category_results).forEach((item) => {
   likes_counter.innerHTML = this_item.likes;
 
   likes_div.setAttribute('class', 'likes');
-  if(localStorage.getItem(item) == "true"){
+  if(localStorage.getItem(category_name + "_" + item) == "true"){
      likes_img.setAttribute('src', 'assets/heart_icon.svg');
-     localStorage.setItem(item, "false");
+     localStorage.setItem(category_name + "_" + item, "false");
   } else {
     likes_img.setAttribute('src', 'assets/heart_icon_filled.svg');
-    localStorage.setItem(item, "true");
+    localStorage.setItem(category_name + "_" + item, "true");
   }
   likes_img.setAttribute('onclick', 'like_unlike(this)');
   likes_counter.setAttribute('class', 'like_count');
