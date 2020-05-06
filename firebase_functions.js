@@ -27,7 +27,8 @@ function getAllRelevantPosts(query, callback) {
 }
 
 function unlike_post(query, callback) {
-  let category, post = query;
+  let category = query[0];
+  let post = query[1];
   console.log("Initializing unlike POSTING");
   console.log(category + ", " + post);
   /*
