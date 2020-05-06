@@ -33,11 +33,10 @@ function unlike_post(query, callback) {
 
   let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(doc_id);
 
-  doc_to_change.get().then((doc) => {
+  doc_to_change.get().then(function(doc){
     console.log(doc.data());
     callback(true);
-  })
-  .catch(function(error){
+  }).catch(function(error){
     console.log(error);
   });
 /*
@@ -54,11 +53,10 @@ function like_post(query, callback) {
 
   let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(doc_id);
 
-  doc_to_change.get().then((doc) => {
+  doc_to_change.get().then(function(doc){
     console.log(doc.data());
     callback(true);
-  })
-  .catch(function(error){
+  }).catch(function(error){
     console.log(error);
   });
 }
