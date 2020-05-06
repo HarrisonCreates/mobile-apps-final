@@ -13,6 +13,7 @@ function like_unlike(heart) {
   if (localStorage.getItem(entry_name) == "false") {
      // Set this post to "liked"
      console.log("Liking post...");
+     var params = [category_name, heart.parentNode.parentNode.className];
      heart.setAttribute('src', 'assets/heart_icon_filled.svg');
      localStorage.setItem(entry_name, "true");
   } else {

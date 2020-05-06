@@ -25,3 +25,18 @@ function getAllRelevantPosts(query, callback) {
     });
   });
 }
+
+function like_post(query, callback) {
+  let category, post = query;
+  console.log("Initializing like POSTING");
+  console.log(category + ", " + post);
+  /*
+  var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
+  doc_ref.post().then((returned_vals) => {
+    returned_vals.forEach((doc) => {
+      var this_doc = doc.data();
+      callback(relevant_returns);
+    });
+  });
+  */
+}
