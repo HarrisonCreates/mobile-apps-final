@@ -25,7 +25,7 @@ function getAllRelevantPosts(query, callback) {
     });
   });
 }
-function add_post_to_category(post_object, category){
+async function add_post_to_category(post_object, category){
   db.collection("posts").doc(category).collection("uploads").add(post_object);
   callback(true);
 }
