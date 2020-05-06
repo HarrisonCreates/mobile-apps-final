@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css">
+  <title>Stillness</title>
+</head>
+
+<body>
+  <div class="results">
+    <div class="top_labels">
+      <div class="text_collection">
+        <h1>CREATE A POST</h1>
+        <h3>SHARE YOUR INSPIRATION WITH THE WORLD</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="posts_results">
+
+      <h3>Step 1: Select Category</h3>
+      <select class="category">
+        <option>LONELINESS</option>
+        <option>FEELING DOWN/SAD</option>
+        <option>PANIC ATTACK</option>
+        <option>FEELING EMPTY</option>
+        <option>JUST NEED A FRIEND</option>
+        <option>BREAKUP/DIVORCE</option>
+        <option>FRUSTRATION/ANGRY</option>
+      </select>
+      <hr>
+      <h3>Step 2: Title Your Submission</h3>
+      <input type="text" class="new_post_title"></input>
+      <hr>
+      <h3>Step 3: Your Name! Credit Where It's Due!</h3>
+      <input type="text" class="author" />
+      <hr>
+      <h3>Step 4: Your Story/Advice/Wisdom</h3>
+      <textarea name="content" class="content"></textarea>
+      <hr>
+      <h3>Step 5: Submit</h3>
+      <div class="submit" onclick="create_post()">SUBMIT</div>
+    </div>
+    <div class="go_back" onclick="window.location.assign('dashboard.html')">
+      <img src="assets/arrow_svg.svg" alt="Arrow">
+      <p>Go Back</p>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+  <script src="firebase_stuff.js" charset="utf-8"></script>
+  <script src="firebase_functions.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var author_val,
+      category_val,
+      content_val,
+      title_val;
+
+    document.querySelector('.category').addEventListener('change', update_category);
+    document.querySelector('.author').addEventListener('change', update_author);
+    document.querySelector('.new_post_title').addEventListener('change', update_title);
+    document.querySelector('.content').addEventListener('change', update_content);
+
+    function update_category() {
+
+      category_val = document.querySelector('.category').value;
+
+      category_val = category_val.toLowerCase();
+      category_val = category_val.replace(/_/g, "-");
+      category_val = category_val.replace(/ /g, "-");
+      category_val = category_val.replace("/", "-");
+
+      console.log(category_val);
+    }
+
+    function update_author() {
+      author_val = document.querySelector('.author').value;
+    }
+
+    function update_content() {
+      content_val = document.querySelector('.content').value;
+    }
+
+    function update_title() {
+      title_val = document.querySelector('.new_post_title').value;
+    }
+
+    function create_post() {
+      if (author_val == undefined || author_val.trim() == '' || content_val == undefined || content_val.trim() == '' || title_val == undefined || title_val.trim() == '') {
+        alert("Fill out all fields");
+      } else {
+        var new_post = {
+          author: author_val,
+          likes: 0,
+          content: content_val,
+          title: title_val
+        }
+        add_post_to_category(new_post, category_val);
+      }
+    }
+  </script>
+</body>
+
+</html>
+<style>
+  hr {
+    width: 100%;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .posts_results {
+    justify-content: flex-start;
+    margin-top: 0 !important;
+    padding-top: 0;
+    overflow-x: hidden;
+    height: 100vh !important;
+  }
+
+  .posts_results>h3 {
+    color: white;
+    text-align: center;
+    line-height: 2em;
+    font-weight: 100;
+    margin-bottom: 5vw;
+  }
+
+  .posts_results>.category,
+  .posts_results>input {
+    padding: 4vw;
+    width: 100%;
+    background: #2E2830;
+    font-size: 4vw;
+    font-family: 'Alata';
+    font-weight: 100;
+    letter-spacing: 2px;
+    outline: none;
+    border: 0px;
+    margin-bottom: 8vw;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .posts_results>.content {
+    width: 100%;
+    height: 40vh !important;
+    border-radius: 5px;
+    padding: 4vw;
+    resize: both;
+    background: #2E2830;
+    color: white;
+    font-family: 'Alata';
+    font-weight: 100;
+    letter-spacing: 1px;
+  }
+
+  .posts_results>.submit {
+    background: #8020ed !important;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Alata';
+    font-weight: 100;
+    font-size: 4vw;
+    letter-spacing: 2px;
+  }
+</style>
