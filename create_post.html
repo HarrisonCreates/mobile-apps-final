@@ -67,10 +67,14 @@
 
       category_val = document.querySelector('.category').value;
 
+      console.log(category_val);
+
       category_val = category_val.toLowerCase();
       category_val = category_val.replace(/_/g, "-");
       category_val = category_val.replace(/ /g, "-");
       category_val = category_val.replace("/", "-");
+
+      console.log(category_val);
     }
 
     function update_author() {
