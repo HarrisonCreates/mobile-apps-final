@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css">
+  <title>Stillness</title>
+</head>
+
+<body>
+  <img src="assets/heart_thanks.svg" alt="Thank you">
+  <h3>Thank You</h3>
+  <br />
+  <br />
+  <h4>You Are Making a Difference</h4>
+
+  <script type="text/javascript">
+    window.onload = function() {
+      document.querySelector('img').style.opacity = "1";
+      document.querySelector('h3').style.opacity = "1";
+      document.querySelector('h4').style.opacity = "1";
+
+      var myTimeout = setTimeout(() => {
+        window.location = "dashboard.html";
+      }, 5500);
+
+    }
+  </script>
+</body>
+
+</html>
+<style>
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
+    color: white;
+    letter-spacing: 2px;
+  }
+
+  body>img {
+    opacity: 0;
+    transition: 0.8s ease;
+    transition-delay: 0s;
+  }
+
+  h3 {
+    font-weight: 100;
+    opacity: 0;
+    transition: 0.8s ease;
+    transition-delay: 1.2s;
+  }
+
+  h4 {
+    font-size: 3.5vw;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.8s ease;
+    transition-delay: 2s;
+  }
+
+  h4:after {
+    content: '';
+    width: 0%;
+    animation-delay: 2.5s;
+    animation-name: grow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    margin-top: 2vw;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  @keyframes grow {
+    0% {
+      width: 0%;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+</style>
