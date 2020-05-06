@@ -7,7 +7,6 @@ function getAllRelevantPosts(query, callback) {
     item = item.replace("/", "-");
     query_array.push(item);
   });
-  console.log(query_array);
   query_array.forEach((item, i) => {
     var temp_array = {};
     var num = 0;
@@ -16,9 +15,8 @@ function getAllRelevantPosts(query, callback) {
       returned_vals.forEach((doc) => {
         var this_doc = doc.data();
         var new_key = "entry_" + num;
-        var id = doc.id;
+        this_doc['id'] = doc.id;
         temp_array[new_key] = this_doc;
-        temp_array['id'] = id;
         var new_item = item.toString().replace(/-/g, "_");
         relevant_returns[new_item] = temp_array;
         num += 1
