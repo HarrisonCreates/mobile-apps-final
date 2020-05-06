@@ -31,18 +31,17 @@ function unlike_post(query, callback) {
   console.log(query);
   let category = query[0];
   let post = query[1];
-  console.log("Initializing unlike POSTING");
   console.log(category + ", " + post);
+
+  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
+
+  console.log(doc_to_change);
+/*
+  var updating = doc_to_change.set({
+    likes: doc_to_change[] + 1
+}, { merge: true });
+*/
   callback(true);
-  /*
-  var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
-  doc_ref.post().then((returned_vals) => {
-    returned_vals.forEach((doc) => {
-      var this_doc = doc.data();
-      callback(relevant_returns);
-    });
-  });
-  */
 }
 
 function like_post(query, callback) {
@@ -50,7 +49,6 @@ function like_post(query, callback) {
   console.log(query);
   let category = query[0];
   let post = query[1];
-  console.log("Initializing like POSTING");
   console.log(category + ", " + post);
   callback(true);
   /*
