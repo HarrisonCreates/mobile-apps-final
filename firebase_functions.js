@@ -25,9 +25,12 @@ function getAllRelevantPosts(query, callback) {
     });
   });
 }
-async function add_post_to_category(post_object, category){
-  db.collection("posts").doc(category).collection("uploads").add(post_object);
-  callback(true);
+function add_post_to_category(post_object, category){
+  db.collection("posts").doc(category).collection("uploads").add(post_object).then((res) => {
+    return "true";
+  }).catch((err) => {
+    return "false";
+  });
 }
 function like_unlike_post(query, type, callback) {
   let category = query[0].replace(/_/g, "-");
