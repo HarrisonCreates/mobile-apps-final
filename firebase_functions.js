@@ -58,7 +58,7 @@ function like_post(query, callback) {
     console.log(doc.data());
     callback(true);
   })
-  .catch(function(error) => {
+  .catch(function(error){
     console.log(error);
   });
 }
