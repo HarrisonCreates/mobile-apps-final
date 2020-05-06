@@ -9,23 +9,20 @@ var posts_area = document.querySelector('.posts_results');
 
 function like_unlike(heart) {
   let entry_name = category_name + "_" + heart.parentNode.parentNode.className;
-  // this may actually be slightly tricky.
   if (localStorage.getItem(entry_name) == "false") {
-     // Set this post to "liked"
      console.log("Liking post...");
      var params = [category_name, heart.parentNode.parentNode.className];
-     heart.setAttribute('src', 'assets/heart_icon_filled.svg');
-     localStorage.setItem(entry_name, "true");
+     like_post(params, (res) => {
+       heart.setAttribute('src', 'assets/heart_icon_filled.svg');
+       localStorage.setItem(entry_name, "true");
+     });
   } else {
     console.log("Unliking post...");
-    heart.setAttribute('src', 'assets/heart_icon.svg');
-    localStorage.setItem(entry_name, "false");
-    // call firebase function to decrement the like
+    unlike_post(params, (res) => {
+      heart.setAttribute('src', 'assets/heart_icon.svg');
+      localStorage.setItem(entry_name, "false");
+    });
   }
-
-  //let firebase_params = [category_name, entry_name];
-
-  //set heart to white & call firebase function to add to the like, passing the above as a parameter
 }
 
 Object.keys(this_category_results).forEach((item) => {
