@@ -35,7 +35,7 @@ function unlike_post(query, callback) {
 
   let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
 
-  console.log(doc_to_change);
+  console.log(doc_to_change.data());
 /*
   var updating = doc_to_change.set({
     likes: doc_to_change[] + 1
