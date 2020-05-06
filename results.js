@@ -10,17 +10,20 @@ var posts_area = document.querySelector('.posts_results');
 function like_unlike(heart) {
   let post_class = heart.parentNode.parentNode.className;
   let post_id = this_category_results[post_class].id;
+  var this_like_counter = heart.parentNode.children[1];
   let entry_name = category_name + "_" + post_class;
   var params = [category_name, post_class, post_id];
   if (localStorage.getItem(entry_name) == "false") {
-     like_unlike_post(params, "like", async (res) => {
-       heart.setAttribute('src', 'assets/heart_icon_filled.svg');
-       localStorage.setItem(entry_name, "true");
-     });
+    like_unlike_post(params, "like", async (res) => {
+      heart.setAttribute('src', 'assets/heart_icon_filled.svg');
+      localStorage.setItem(entry_name, "true");
+      this_like_area.innerHTML = parseInt(this_like_area.innerHTML) + 1;
+    });
   } else {
     like_unlike_post(params, "unlike", async (res) => {
       heart.setAttribute('src', 'assets/heart_icon.svg');
       localStorage.setItem(entry_name, "false");
+      this_like_area.innerHTML = parseInt(this_like_area.innerHTML) - 1;
     });
   }
 }
@@ -40,9 +43,9 @@ Object.keys(this_category_results).forEach((item) => {
   likes_counter.innerHTML = this_item.likes;
 
   likes_div.setAttribute('class', 'likes');
-  if(localStorage.getItem(category_name + "_" + item) == "false" || localStorage.getItem(category_name + "_" + item) == undefined){
-     likes_img.setAttribute('src', 'assets/heart_icon.svg');
-     localStorage.setItem(category_name + "_" + item, "false");
+  if (localStorage.getItem(category_name + "_" + item) == "false" || localStorage.getItem(category_name + "_" + item) == undefined) {
+    likes_img.setAttribute('src', 'assets/heart_icon.svg');
+    localStorage.setItem(category_name + "_" + item, "false");
   } else {
     likes_img.setAttribute('src', 'assets/heart_icon_filled.svg');
     localStorage.setItem(category_name + "_" + item, "true");
