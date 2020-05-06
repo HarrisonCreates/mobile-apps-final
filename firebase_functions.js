@@ -45,8 +45,11 @@ function unlike_post(query, callback) {
 }
 
 function like_post(query, callback) {
-  let category, post = query;
-  console.log("Initializing like POSTING");
+  console.log("Received:");
+  console.log(query);
+  let category = query[0];
+  let post = query[1];
+  console.log("Initializing unlike POSTING");
   console.log(category + ", " + post);
   /*
   var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
