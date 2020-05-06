@@ -50,7 +50,7 @@ function like_post(query, callback) {
   console.log(query);
   let category = query[0];
   let post = query[1];
-  console.log("Initializing unlike POSTING");
+  console.log("Initializing like POSTING");
   console.log(category + ", " + post);
   callback(true);
   /*
