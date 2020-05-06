@@ -26,6 +26,8 @@ function getAllRelevantPosts(query, callback) {
   });
 }
 function add_post_to_category(post_object, category){
+  console.log(post_object);
+  console.log(category);
   db.collection("posts").doc(category).collection("uploads").add(post_object).then((res) => {
     window.location = "thanks.html";
   }).catch((err) => {
