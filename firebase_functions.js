@@ -26,37 +26,31 @@ function getAllRelevantPosts(query, callback) {
   });
 }
 
-function like_post(query, callback) {
+function like_unlike_post(query, type, callback) {
   let category = query[0].replace(/_/g, "-");
   let post = query[1];
   let doc_id = query[2];
 
   let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(doc_id);
 
-  doc_to_change.get().then(function(doc){
-    console.log(doc.data());
-    callback(true);
-  }).catch(function(error){
+  doc_to_change.get().then(function(doc) {
+    var found_obj = doc.data();
+    var num_likes = found_obj.likes;
+    if (type == "like") {
+      var new_likes = num_likes + 1;
+    } else {
+      var new_likes = num_likes - 1;
+    }
+    doc_to_change.set({
+      likes: new_likes
+    }, {
+      merge: true
+    }).then(function(res) {
+      callback(true);
+    }).catch(function(err) {
+      console.log(err);
+    })
+  }).catch(function(error) {
     console.log(error);
   });
-}
-
-function unlike_post(query, callback) {
-  let category = query[0].replace(/_/g, "-");
-  let post = query[1];
-  let doc_id = query[2];
-
-  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(doc_id);
-
-  doc_to_change.get().then(function(doc){
-    console.log(doc.data());
-    callback(true);
-  }).catch(function(error){
-    console.log(error);
-  });
-/*
-  var updating = doc_to_change.set({
-    likes: 701
-}, { merge: true });
-*/
 }
