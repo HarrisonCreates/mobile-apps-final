@@ -8,8 +8,10 @@ var subtext = document.querySelector('.text_collection > h3');
 var posts_area = document.querySelector('.posts_results');
 
 function like_unlike(heart) {
-  let entry_name = category_name + "_" + heart.parentNode.parentNode.className;
-  var params = [category_name, heart.parentNode.parentNode.className];
+  let post_class = heart.parentNode.parentNode.className;
+  let post_id = this_category_results[post_class].id;
+  let entry_name = category_name + "_" + post_class;
+  var params = [category_name, post_class, post_id];
   if (localStorage.getItem(entry_name) == "false") {
      like_post(params, async (res) => {
        heart.setAttribute('src', 'assets/heart_icon_filled.svg');

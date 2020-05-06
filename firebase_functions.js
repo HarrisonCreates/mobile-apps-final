@@ -29,41 +29,36 @@ function getAllRelevantPosts(query, callback) {
 function unlike_post(query, callback) {
   let category = query[0];
   let post = query[1];
+  let doc_id = query[2];
 
-  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
+  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(doc_id);
 
-  doc_to_change.get().then((found_post) => {
-    console.log(found_post);
-    console.log(found_post.data());
+  doc_to_change.get().then((doc) => {
+    console.log(doc.data());
+    callback(true);
+  })
+  .catch(function(error) => {
+    console.log(error);
   });
 /*
   var updating = doc_to_change.set({
     likes: 701
 }, { merge: true });
 */
-  callback(true);
 }
 
 function like_post(query, callback) {
   let category = query[0];
   let post = query[1];
+  let doc_id = query[2];
 
-  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
+  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(doc_id);
 
-  doc_to_change.get().then((found_post) => {
-    console.log("Found Post:");
-    console.log(found_post);
-    console.log(found_post.data());
+  doc_to_change.get().then((doc) => {
+    console.log(doc.data());
+    callback(true);
+  })
+  .catch(function(error) => {
+    console.log(error);
   });
-
-  callback(true);
-  /*
-  var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
-  doc_ref.post().then((returned_vals) => {
-    returned_vals.forEach((doc) => {
-      var this_doc = doc.data();
-      callback(relevant_returns);
-    });
-  });
-  */
 }
