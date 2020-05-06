@@ -54,7 +54,7 @@
   <script src="firebase_functions.js" charset="utf-8"></script>
   <script type="text/javascript">
     var author_val,
-      category_val,
+      category_val = document.querySelector('.category').value,
       content_val,
       title_val;
 
@@ -67,14 +67,11 @@
 
       category_val = document.querySelector('.category').value;
 
-      console.log(category_val);
-
       category_val = category_val.toLowerCase();
       category_val = category_val.replace(/_/g, "-");
       category_val = category_val.replace(/ /g, "-");
       category_val = category_val.replace("/", "-");
 
-      console.log(category_val);
     }
 
     function update_author() {
