@@ -17,13 +17,13 @@ function like_unlike(heart) {
     like_unlike_post(params, "like", async (res) => {
       heart.setAttribute('src', 'assets/heart_icon_filled.svg');
       localStorage.setItem(entry_name, "true");
-      this_like_area.innerHTML = parseInt(this_like_area.innerHTML) + 1;
+      this_like_counter.innerHTML = parseInt(this_like_counter.innerHTML) + 1;
     });
   } else {
     like_unlike_post(params, "unlike", async (res) => {
       heart.setAttribute('src', 'assets/heart_icon.svg');
       localStorage.setItem(entry_name, "false");
-      this_like_area.innerHTML = parseInt(this_like_area.innerHTML) - 1;
+      this_like_counter.innerHTML = parseInt(this_like_counter.innerHTML) - 1;
     });
   }
 }
