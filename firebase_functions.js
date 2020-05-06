@@ -33,6 +33,7 @@ function unlike_post(query, callback) {
   let post = query[1];
   console.log("Initializing unlike POSTING");
   console.log(category + ", " + post);
+  callback(true);
   /*
   var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
   doc_ref.post().then((returned_vals) => {
@@ -51,6 +52,7 @@ function like_post(query, callback) {
   let post = query[1];
   console.log("Initializing unlike POSTING");
   console.log(category + ", " + post);
+  callback(true);
   /*
   var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
   doc_ref.post().then((returned_vals) => {

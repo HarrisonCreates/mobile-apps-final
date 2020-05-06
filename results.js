@@ -12,13 +12,13 @@ function like_unlike(heart) {
   if (localStorage.getItem(entry_name) == "false") {
      console.log("Liking post...");
      var params = [category_name, heart.parentNode.parentNode.className];
-     like_post(params, (res) => {
+     like_post(params, await (res) => {
        heart.setAttribute('src', 'assets/heart_icon_filled.svg');
        localStorage.setItem(entry_name, "true");
      });
   } else {
     console.log("Unliking post...");
-    unlike_post(params, (res) => {
+    unlike_post(params, await (res) => {
       heart.setAttribute('src', 'assets/heart_icon.svg');
       localStorage.setItem(entry_name, "false");
     });
