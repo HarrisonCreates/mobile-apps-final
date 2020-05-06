@@ -36,9 +36,8 @@ function unlike_post(query, callback) {
   let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
 
   doc_to_change.get().then((found_post) => {
-    found_post.forEach((item) => {
-      console.log(item);
-    });
+    console.log(found_post);
+    console.log(found_post.data());
   });
 
   console.log(doc_to_change);
@@ -60,9 +59,8 @@ function like_post(query, callback) {
   let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
 
   doc_to_change.get().then((found_post) => {
-    found_post.forEach((item) => {
-      console.log(item);
-    });
+    console.log(found_post);
+    console.log(found_post.data());
   });
 
   console.log(doc_to_change);
