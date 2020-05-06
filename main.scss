@@ -159,6 +159,18 @@ body {
   align-items: center;
 }
 
+.dashboard > .slideout{
+  width: 70vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: -100%;
+  background: #2E2830;
+  transition: 0.5s ease;
+  z-index: 100;
+}
+
 .dashboard > .top_labels,
 .results > .top_labels {
   display: flex;
@@ -196,6 +208,7 @@ body {
 
 .dashboard > .top_labels > .menu_toggle {
   width: 9vw;
+  user-select: none;
 }
 
 .dashboard > .update_selection_btn {
@@ -204,6 +217,7 @@ body {
   padding: 2vw 8vw;
   border-radius: 100px;
   border: 2px solid white;
+  transition: 0.5s ease;
 }
 
 .dashboard > .update_selection_btn > h4 {
@@ -221,6 +235,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  transition: 0.5s ease;
 }
 
 .dashboard > .simplified_options > div {
@@ -248,6 +263,10 @@ body {
 
 .dashboard > .simplified_options > div > img {
   width: 10vw;
+}
+
+.dashboard > .footer{
+  transition: 0.5s ease;
 }
 
 .results > .posts_results {

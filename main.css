@@ -215,6 +215,18 @@ body {
       -ms-flex-align: center;
           align-items: center; }
 
+.dashboard > .slideout {
+  width: 70vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: -100%;
+  background: #2E2830;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  z-index: 100; }
+
 .dashboard > .top_labels,
 .results > .top_labels {
   display: -webkit-box;
@@ -266,14 +278,20 @@ body {
   font-weight: 500; }
 
 .dashboard > .top_labels > .menu_toggle {
-  width: 9vw; }
+  width: 9vw;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .dashboard > .update_selection_btn {
   margin-top: 7vw;
   margin-bottom: 7vw;
   padding: 2vw 8vw;
   border-radius: 100px;
-  border: 2px solid white; }
+  border: 2px solid white;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease; }
 
 .dashboard > .update_selection_btn > h4 {
   font-weight: 100;
@@ -297,7 +315,9 @@ body {
           align-items: center;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
-          justify-content: flex-start; }
+          justify-content: flex-start;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease; }
 
 .dashboard > .simplified_options > div {
   width: 100%;
@@ -331,6 +351,10 @@ body {
 
 .dashboard > .simplified_options > div > img {
   width: 10vw; }
+
+.dashboard > .footer {
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease; }
 
 .results > .posts_results {
   height: 100vh;
