@@ -97,8 +97,9 @@
           content: content_val,
           title: title_val
         }
-        add_post_to_category(new_post, category_val);
-        window.location = "thanks.html";
+        let success_toggle = await add_post_to_category(new_post, category_val);
+        console.log(success_toggle);
+        //window.location = "thanks.html";
       }
     }
   </script>
