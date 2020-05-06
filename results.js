@@ -9,15 +9,13 @@ var posts_area = document.querySelector('.posts_results');
 
 function like_unlike(heart) {
   let entry_name = category_name + "_" + heart.parentNode.parentNode.className;
+  var params = [category_name, heart.parentNode.parentNode.className];
   if (localStorage.getItem(entry_name) == "false") {
-     console.log("Liking post...");
-     var params = [category_name, heart.parentNode.parentNode.className];
      like_post(params, async (res) => {
        heart.setAttribute('src', 'assets/heart_icon_filled.svg');
        localStorage.setItem(entry_name, "true");
      });
   } else {
-    console.log("Unliking post...");
     unlike_post(params, async (res) => {
       heart.setAttribute('src', 'assets/heart_icon.svg');
       localStorage.setItem(entry_name, "false");
