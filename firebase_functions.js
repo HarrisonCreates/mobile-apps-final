@@ -57,7 +57,13 @@ function like_post(query, callback) {
   let post = query[1];
   console.log(category + ", " + post);
 
-  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post).data();
+  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
+
+  doc_ref.get().then((found_post) => {
+    found_post.forEach((item) => {
+      console.log(item);
+    });
+  });
 
   console.log(doc_to_change);
 
