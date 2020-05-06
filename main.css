@@ -216,7 +216,9 @@ body {
           align-items: center; }
 
 .dashboard > .slideout {
+  --padding: 8vw;
   width: 70vw;
+  padding: var(--padding);
   height: 100vh;
   position: absolute;
   top: 0;
@@ -225,7 +227,58 @@ body {
   background: #2E2830;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
-  z-index: 100; }
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.dashboard > .slideout > h3 {
+  font-weight: 100;
+  letter-spacing: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 4vw;
+  text-align: center;
+  margin-right: -10px;
+  color: #A1A1A1; }
+
+.dashboard > .slideout > .options {
+  margin-top: var(--padding);
+  margin-bottom: var(--padding);
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+
+.dashboard > .slideout > .options > div {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: 'Alata';
+  font-size: 4vw;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
 
 .dashboard > .top_labels,
 .results > .top_labels {
