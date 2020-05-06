@@ -50,6 +50,11 @@ function like_post(query, callback) {
   let category = query[0];
   let post = query[1];
   console.log(category + ", " + post);
+
+  let doc_to_change = db.collection("posts").doc(category).collection("uploads").doc(post);
+
+  console.log(doc_to_change);
+
   callback(true);
   /*
   var doc_ref = db.collection("posts").doc(item).collection("uploads").orderBy("likes", "desc");
