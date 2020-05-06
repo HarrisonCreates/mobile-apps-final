@@ -16,7 +16,7 @@ function getAllRelevantPosts(query, callback) {
       returned_vals.forEach((doc) => {
         var this_doc = doc.data();
         var new_key = "entry_" + num;
-        var id = doc.id();
+        var id = doc.id;
         temp_array[new_key] = this_doc;
         temp_array['id'] = id;
         var new_item = item.toString().replace(/-/g, "_");
