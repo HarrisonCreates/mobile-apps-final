@@ -1,4 +1,4 @@
-var categories = JSON.parse(localStorage.getItem('returned_values'));
+//var categories = JSON.parse(localStorage.getItem('returned_values'));
 var dashboard_results = document.querySelector('.simplified_options');
 var selection_btn = document.querySelector('.update_selection_btn');
 var slideout = document.querySelector('.slideout');
@@ -10,7 +10,7 @@ document.querySelector('.update_selection_btn').addEventListener('click', () => 
    window.location = "category_selection.html";
 });
 
-Object.keys(categories).forEach((item) => {
+/*Object.keys(categories).forEach((item) => {
   var temp_div = document.createElement('div');
   var temp_div_title = document.createElement('p');
   var temp_div_arrow = document.createElement('img');
@@ -30,7 +30,7 @@ function process(category_name){
    localStorage.setItem('selected_category', category_name);
    window.location.assign('results_page.html');
 }
-
+*/
 menu_toggle.addEventListener('click', () => {
    if(toggle_state){
      // close the menu

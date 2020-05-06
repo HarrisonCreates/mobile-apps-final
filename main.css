@@ -278,11 +278,7 @@ body {
   font-weight: 500; }
 
 .dashboard > .top_labels > .menu_toggle {
-  width: 9vw;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
+  width: 9vw; }
 
 .dashboard > .update_selection_btn {
   margin-top: 7vw;
