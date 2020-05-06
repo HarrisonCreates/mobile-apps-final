@@ -27,9 +27,9 @@ function getAllRelevantPosts(query, callback) {
 }
 function add_post_to_category(post_object, category){
   db.collection("posts").doc(category).collection("uploads").add(post_object).then((res) => {
-    return("true");
+    window.location = "thanks.html";
   }).catch((err) => {
-    return("false");
+    console.log("false");
   });
 }
 function like_unlike_post(query, type, callback) {
